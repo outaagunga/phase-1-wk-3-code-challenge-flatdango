@@ -26,6 +26,10 @@ body {
   ul#films li {
     cursor: pointer;
     margin-bottom: 10px;
+    color: rgb(0, 60, 255);
+    background-color: rgb(230, 225, 231);
+    word-wrap: inherit;
+    font-style: italic;
   }
   
   ul#films li.sold-out {
