@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Ticket Booking</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket Booking</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Movie Ticket Booking</h1>
-    
-    <div id="movie-details">
-        <!-- Movie details will be populated at this area -->
+  <div class="container">
+    <div class="films-menu">
+      <ul id="films">
+        <!-- The menu of all movies will be dynamically added here -->
+      </ul>
     </div>
-    
-    <ul id="movie-list">
-        <!-- Movie list will be populated here -->
-    </ul>
-    
-    <script src="index.js"></script>
+    <div class="film-details">
+      <img id="poster" src="" alt="Movie Poster">
+      <h2 id="title"></h2>
+      <p id="runtime"></p>
+      <p id="showtime"></p>
+      <p id="available-tickets"></p>
+      <button id="buy-ticket">Buy Ticket</button>
+    </div>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>

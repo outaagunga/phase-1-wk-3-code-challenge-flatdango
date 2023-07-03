@@ -1,23 +1,49 @@
-#movie-details {
-    margin-bottom: 20px;
-}
-
-#movie-details img {
-    width: 200px;
-}
-
-#movie-details h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#movie-list {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  .films-menu {
+    width: 30%;
+  }
+  
+  .film-details {
+    width: 60%;
+  }
+  
+  ul#films {
     list-style: none;
     padding: 0;
-    margin: 0;
-}
-
-#movie-list li img {  /* Corrected "movi" to "movie" */
-    width: 50px;
-    margin-right: 10px;
-}
+  }
+  
+  ul#films li {
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  ul#films li.sold-out {
+    color: red;
+  }
+  
+  img#poster {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  button#buy-ticket {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
