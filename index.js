@@ -1,5 +1,5 @@
 //Make a GET request to retrieve movie details
-fetch("/films/1")
+fetch("http://localhost:3000/films/1")
   .then(response => response.json())
   .then(data => {
     //Update the movie details section with the retrieved data

@@ -1,0 +1,20 @@
+{
+  "name": "phase-1-wk-3-code-challenge-flatdango",
+  "version": "1.0.0",
+  "description": "This is code challenge for week-3 phase- 1- FlatDango movie company",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/outaagunga/phase-1-wk-3-code-challenge-flatdango.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/outaagunga/phase-1-wk-3-code-challenge-flatdango/issues"
+  },
+  "homepage": "https://github.com/outaagunga/phase-1-wk-3-code-challenge-flatdango#readme"
+}
