@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filmTitle = document.getElementById('title');
   const filmRuntime = document.getElementById('runtime');
   const filmShowtime = document.getElementById('showtime');
-  const filmAvailableTickets = document.getElementById('available-tickets');
+  let filmAvailableTickets; // Declare the variable here
   const buyTicketButton = document.getElementById('buy-ticket');
 
   // Function to fetch movies data from the API
@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return listItem;
   };
 
+  // Function to handle buy ticket button click
+  const handleBuyTicketClick = () => {
+    const availableTicketsText = filmAvailableTickets.textContent;
+    const availableTickets = parseInt(availableTicketsText.split(': ')[1]);
+    if (availableTickets > 0) {
+      filmAvailableTickets.textContent = `Available Tickets: ${availableTickets - 1}`;
+    }
+  };
+
   // Function to initialize the app
   const init = async () => {
     const movies = await fetchMovies();
@@ -75,8 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add event listener for movie click
     filmsMenu.addEventListener('click', handleMovieClick);
 
+    // Add event listener for buy ticket button click
+    buyTicketButton.addEventListener('click', handleBuyTicketClick);
+
     // Load the first movie's details
     if (movies.length > 0) {
+      filmAvailableTickets = document.getElementById('available-tickets'); // Assign the variable here
       updateFilmDetails(movies[0]);
     }
   };
