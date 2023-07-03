@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filmTitle = document.getElementById('title');
   const filmRuntime = document.getElementById('runtime');
   const filmShowtime = document.getElementById('showtime');
+  //filmAvailableTickets variable should be at the top of the JavaScript file so that it can be accessed by all functions.
   let filmAvailableTickets; // Declare the variable here
   const buyTicketButton = document.getElementById('buy-ticket');
 
