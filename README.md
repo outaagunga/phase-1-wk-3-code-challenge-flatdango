@@ -277,3 +277,184 @@ Save the changes to script.js and refresh the browser. Test the "Buy Ticket" but
 That's it! You have set up the development environment, integrated the API, styled the application, and implemented the ticket purchase feature. 
 
 Now you can continue building on this foundation, adding more features and enhancing the user experience.
+
+
+
+
+
+
+
+
+
+
+
+Simplified Step by step for beginners
+
+now, kindly write for me all the steps one by one and they should be detailed so that a beginner can follow easily and do the above project
+
+
+
+Step 1: Set up the project
+
+Create a new directory for your project.
+Inside the project directory, create three files: index.html, styles.css, and index.js.
+Open the index.html file and set up the basic HTML structure. Link the CSS and JavaScript files by adding the following code inside the <head> tag:
+html
+Copy code
+<link rel="stylesheet" href="styles.css">
+<script src="index.js" defer></script>
+Create the necessary HTML elements for the movie details and film menu. Add the following code inside the <body> tag of the index.html file:
+html
+Copy code
+<h1>Movie Ticket Booking</h1>
+<div class="container">
+  <div class="films-menu">
+    <ul id="films"></ul>
+  </div>
+  <div class="film-details">
+    <img id="poster" src="" alt="Movie Poster">
+    <h2 id="title"></h2>
+    <p id="runtime"></p>
+    <p id="showtime"></p>
+    <p id="available-tickets"></p>
+    <button id="buy-ticket">Buy Ticket</button>
+  </div>
+</div>
+Open the styles.css file and add the necessary CSS styles to format the movie details and film menu. For example:
+css
+Copy code
+.container {
+  display: flex;
+}
+
+.films-menu {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.film-details {
+  flex: 2;
+}
+
+/* Add more CSS styles as desired */
+Save the HTML and CSS files.
+Step 2: Fetch movie data from the API
+
+In the index.js file, add the following code to fetch movies from the API endpoint:
+javascript
+Copy code
+const fetchMovies = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/films');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+  }
+};
+Create a function fetchMovieDetails to fetch the details of a specific movie using its ID. Use the following code:
+javascript
+Copy code
+const fetchMovieDetails = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/films/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching movie ${id} details:`, error);
+  }
+};
+Step 3: Update movie details on the page
+
+Create a function updateFilmDetails to update the movie details on the page. Use the following code:
+javascript
+Copy code
+const updateFilmDetails = (movie) => {
+  const filmPoster = document.getElementById('poster');
+  const filmTitle = document.getElementById('title');
+  const filmRuntime = document.getElementById('runtime');
+  const filmShowtime = document.getElementById('showtime');
+  const filmAvailableTickets = document.getElementById('available-tickets');
+  const buyTicketButton = document.getElementById('buy-ticket');
+
+  filmPoster.src = movie.poster;
+  filmTitle.textContent = movie.title;
+  filmRuntime.textContent = `Runtime: ${movie.runtime} minutes`;
+  filmShowtime.textContent = `Showtime: ${movie.showtime}`;
+  const availableTickets = movie.capacity - movie.tickets_sold;
+  filmAvailableTickets.textContent = `Available Tickets: ${availableTickets}`;
+  if (availableTickets === 0) {
+    buyTicketButton.disabled = true;
+    buyTicketButton.textContent = 'Sold Out';
+  } else {
+    buyTicketButton.disabled = false;
+    buyTicketButton.textContent = 'Buy Ticket';
+  }
+};
+Step 4: Handle movie click event
+
+Create a function handleMovieClick to handle the movie click event. Use the following code:
+javascript
+Copy code
+const handleMovieClick = async (event) => {
+  const movieId = event.target.dataset.movieId;
+  if (movieId) {
+    const movie = await fetchMovieDetails(movieId);
+    updateFilmDetails(movie);
+  }
+};
+Step 5: Create film menu items
+
+Create a function createFilmMenuItem to create film menu items dynamically. Use the following code:
+javascript
+Copy code
+const createFilmMenuItem = (movie) => {
+  const listItem = document.createElement('li');
+  listItem.classList.add('film', 'item');
+  listItem.textContent = movie.title;
+  listItem.dataset.movieId = movie.id;
+  return listItem;
+};
+Step 6: Initialize the app
+
+Create an init function to initialize the app. Use the following code:
+javascript
+Copy code
+const init = async () => {
+  const filmsMenu = document.getElementById('films');
+  const movies = await fetchMovies();
+  movies.forEach((movie) => {
+    const listItem = createFilmMenuItem(movie);
+    filmsMenu.appendChild(listItem);
+  });
+
+  filmsMenu.addEventListener('click', handleMovieClick);
+
+  // Load the first movie's details
+  if (movies.length > 0) {
+    const firstMovie = movies[0];
+    const movieDetails = await fetchMovieDetails(firstMovie.id);
+    updateFilmDetails(movieDetails);
+  }
+};
+
+// Call the init function to start the app
+init();
+Step 7: Handle "Buy Ticket" button click
+
+Create a function handleBuyTicketClick to handle the "Buy Ticket" button click event. Use the following code:
+javascript
+Copy code
+const handleBuyTicketClick = () => {
+  const filmAvailableTickets = document.getElementById('available-tickets');
+  const availableTicketsText = filmAvailableTickets.textContent;
+  const availableTickets = parseInt(availableTicketsText.split(': ')[1]);
+  if (availableTickets > 0) {
+    filmAvailableTickets.textContent = `Available Tickets: ${availableTickets - 1}`;
+  }
+};
+
+// Add event listener for buy ticket button click
+const buyTicketButton = document.getElementById('buy-ticket');
+buyTicketButton.addEventListener('click', handleBuyTicketClick);
+That's it! 
