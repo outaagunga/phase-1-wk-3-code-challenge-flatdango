@@ -28,6 +28,86 @@ Install a web server software: You can use a lightweight server like Live Server
 Set up a code editor or IDE: Download and install Visual Studio Code, a popular code editor, from the official website.
 
 
+When you have been given bd.json file for your project, you can follow these steps to set up your local server
+
+To set up a local server using the db.json file, you can follow these general steps:
+
+Install Node.js: Make sure you have Node.js installed on your computer. You can download it from the official website (https://nodejs.org) and follow the installation instructions for your operating system.
+
+Create a project directory: Create a new directory for your project and navigate to it using the command line or terminal.
+
+Initialize a new Node.js project: Run the following command in the project directory to create a package.json file that will manage your project dependencies:
+
+csharp
+Copy code
+npm init -y
+
+Install JSON server: JSON Server is a simple Node.js package that allows you to set up a RESTful API with a JSON file. Install it globally by running the following command:
+Copy code
+npm install -g json-server
+
+Copy the db.json file: Place the db.json file you downloaded into your project directory.
+
+Start the server: In the command line or terminal, navigate to your project directory and run the following command:
+css
+Copy code
+json-server --watch db.json
+
+This command will start the JSON server and watch the db.json file for changes.
+
+Access the server: The JSON server will run on http://localhost:3000 by default. You can access your data by making HTTP requests to this URL.
+
+For example, if you have a users resource defined in your db.json file, you can access it by sending a GET request to http://localhost:3000/users.
+
+
+
+OR: Setting up the local JSON DB server:
+
+Download the db.json file from the source provided or create your own JSON file with the desired data structure.
+
+Install a local JSON server to serve the data. One popular option is JSON Server (https://github.com/typicode/json-server).
+
+Install JSON Server globally using npm (Node Package Manager) by running the following command in your project's root directory:
+Copy code
+npm install -g json-server
+
+Once installed, start the JSON server by running the following command:
+css
+Copy code
+json-server --watch db.json
+
+The JSON server will start and serve the data from the db.json file at http://localhost:3000.
+
+Fetching data from the local JSON DB server:
+
+In your project code, you can use various methods to fetch data from the local JSON server. The method you choose will depend on the programming language or framework you are using.
+
+Here is an example using JavaScript and the Fetch API to fetch data from the local JSON server:
+javascript
+Copy code
+
+
+fetch('http://localhost:3000/your-endpoint')
+  .then(response => response.json())
+  .then(data => {
+    // Handle the data returned from the server
+    console.log(data);
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the fetch request
+    console.error(error);
+  });
+
+
+Replace your-endpoint with the specific endpoint you want to fetch data from. For example, if you have a users endpoint, you can use http://localhost:3000/users to fetch the user data.
+
+Use the fetched data:
+
+Once you have retrieved the data from the JSON server, you can use it in your application as needed. Parse the JSON response and manipulate or display the data according to your project requirements.
+
+
+
+
 
 Project Setup:
 
